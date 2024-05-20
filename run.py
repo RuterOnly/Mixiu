@@ -28,7 +28,7 @@ class MyClient(botpy.Client):
     # 机器人上线信息
     async def on_ready(self):
         _log.info("======================")
-        if self.robot != None:
+        if self.robot is not None:
             _log.info(f"机器人 「{self.robot.name}」 ")
         content =  datetime.datetime.now()
         content = content.strftime("%Y-%m-%d %H:%M:%S")
@@ -124,7 +124,7 @@ class MyClient(botpy.Client):
                 await post_msg_common(self.api, message, 2, at =True, content = f'指令正常响应，但是处理失败，可以联系反馈。')
                 return 
 
-        if status == None:
+        if status is None:
             _log.warning(f'无效事件|未响应指令事件|处理时间:{datetime.datetime.now() - start_times} ')
             await post_msg_common(self.api, message, 2, at =True, content = f'您发送的不是指令呢？')
         return    

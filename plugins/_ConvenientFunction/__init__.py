@@ -33,7 +33,7 @@ from utils.message.log import _log
 @Commands(name=("/一言", "一言", "随机一言",))
 async def OneSentence(api: BotAPI, message: Message, params=None):
     txt = await getHitokoto()
-    if txt == None:
+    if txt is None:
         txt = BotReply.NO_FUNCTION
     await post_msg_common(api, message, 2, content = txt)
     if txt != BotReply.NO_FUNCTION:
@@ -56,7 +56,7 @@ async def Joke(api: BotAPI, message: Message, params=None):
 @Commands(name=("诗句", "/诗句", "随机诗句",))
 async def Varse(api: BotAPI, message: Message, params=None):
     txt = await getVarse()
-    if txt == None:
+    if txt is None:
         txt = BotReply.NO_FUNCTION
     txt = [txt]
     txt = set_embed(message.author.avatar,'诗句',txt)
@@ -67,7 +67,7 @@ async def Varse(api: BotAPI, message: Message, params=None):
 @Commands(name=("/情话",'情话'))
 async def MorningNewspaper(api: BotAPI, message: Message, params=None):
     txt = await get_rainbow_flatter()
-    if txt == None:
+    if txt is None:
         txt = BotReply.NO_FUNCTION
     await post_msg_common(api, message, 2, content = txt)
     if txt != BotReply.NO_FUNCTION:
@@ -77,7 +77,7 @@ async def MorningNewspaper(api: BotAPI, message: Message, params=None):
 @Commands(name=("壁纸", "/壁纸", "每日壁纸"))
 async def wallpaper(api: BotAPI, message: Message, params=None):
     txt = await getBingHpimage()
-    if txt == None:
+    if txt is None:
         txt = BotReply.NO_FUNCTION
         await post_msg_common(api, message, 2, content = txt)
         return False     
@@ -101,7 +101,7 @@ async def wallpaper(api: BotAPI, message: Message, params=None):
 @Commands(name=("one", '/one'))
 async def mood(api: BotAPI, message: Message, params=None):
     txt = await get_one()
-    if txt == None or txt == '':
+    if txt is None or txt == '':
         txt = BotReply.NO_FUNCTION
         await post_msg_common(api, message, 2, content=txt)
         return False
@@ -120,7 +120,7 @@ async def mood(api: BotAPI, message: Message, params=None):
 @Commands(name=("文案", "朋友圈"))
 async def Copywriting(api: BotAPI, message: Message, params=None):
     txt = await get_clerk()
-    if txt == None:
+    if txt is None:
         txt = BotReply.NO_FUNCTION
 
     await post_msg_common(api, message, 2, content=txt)
@@ -132,7 +132,7 @@ async def Copywriting(api: BotAPI, message: Message, params=None):
 @Commands(name=("历史今天", "历史上的今天"))
 async def Today_In_History(api: BotAPI, message: Message, params=None):
     txt = await getTodayInHistory()
-    if txt == None:
+    if txt is None:
         txt = BotReply.NO_FUNCTION
 
     await post_msg_common(api, message, 2, content=txt)
@@ -144,7 +144,7 @@ async def Today_In_History(api: BotAPI, message: Message, params=None):
 @Commands(name=("心灵鸡汤", "毒鸡汤"))
 async def SoulSoothe(api: BotAPI, message: Message, params=None):
     txt = await get_soul_soother()
-    if txt == None:
+    if txt is None:
         txt = BotReply.NO_FUNCTION    
     await post_msg_common(api, message, 2, content=txt)
     if txt != BotReply.NO_FUNCTION:
@@ -155,7 +155,7 @@ async def SoulSoothe(api: BotAPI, message: Message, params=None):
 @Commands(name=("舔狗日记"))
 async def LickDogDiary(api: BotAPI, message: Message, params=None):
     txt = await getLickdogdiary()
-    if txt == None:
+    if txt is None:
         txt = BotReply.NO_FUNCTION    
     await post_msg_common(api, message, 2, content=txt)
     if txt != BotReply.NO_FUNCTION:

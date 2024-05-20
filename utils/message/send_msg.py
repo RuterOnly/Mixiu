@@ -33,7 +33,7 @@ async def post_msg_common(
     if isinstance(image_path, BytesIO):
         image_path = image_path.getvalue()
     
-    if at and content != None:
+    if at and content is not None:
         content = f'<@{message.author.id}>'+ content
 
     _log.info(f"{message.id}:【尝试发送消息】 {image_url} {content}")
@@ -43,22 +43,22 @@ async def post_msg_common(
         
         _log.info(f"{message.id}:【发送消息{str(i)}次】")
         try:
-            if content != None and image_path != None and image_url != None:
+            if content is not None and image_path is not None and image_url is not None:
                 _log.info(f"【发送】:文本带本地图片带网络图片")
                 await api.post_message(msg_id=message.id, channel_id = message.channel_id, file_image = image_path, image = image_url)
-            elif content != None and image_path != None and image_url == None:
+            elif content is not None and image_path is not None and image_url is None:
                 _log.info(f"【发送】:文本带本地图片")
                 await api.post_message(msg_id=message.id, content = content, channel_id = message.channel_id, file_image = image_path)
-            elif content != None and image_path == None and image_url != None:
+            elif content is not None and image_path is None and image_url is not None:
                 _log.info(f"【发送】:文本带网络图片")
                 await api.post_message(msg_id=message.id, content = content, channel_id = message.channel_id, image = image_url)  
-            elif content != None and image_path == None and image_url == None:
+            elif content is not None and image_path is None and image_url is None:
                 _log.info(f"【发送】:纯文本")
                 await api.post_message(msg_id=message.id, content = content, channel_id = message.channel_id)
-            elif content == None and image_path != None and image_url == None:
+            elif content is None and image_path is not None and image_url is None:
                 _log.info(f"【发送】:本地图片")
                 await api.post_message(msg_id=message.id, channel_id = message.channel_id, file_image = image_path)
-            elif content == None and image_path == None and image_url != None:
+            elif content is None and image_path is None and image_url is not None:
                 _log.info(f"【发送】:网络图片")
                 await api.post_message(msg_id=message.id, channel_id = message.channel_id, image = image_url)
             else:

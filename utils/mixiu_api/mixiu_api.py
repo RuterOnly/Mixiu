@@ -18,7 +18,7 @@ BING_HPIMAGE_URL = 'https://cn.bing.com/HPImageArchive.aspx?format=js&idx=0&n=10
 
 # One 
 
-ONE_URL = "http://api.mixiu.chat/oneapi"
+ONE_URL = "http://api.mixiu.chat/one"
 
 # 舔狗日记
 LICKDOGDIARY_URL =  'https://api.juncikeji.xyz/api/tgrj.php' # 'https://api.juncikeji.xyz/api/tgrj.php' # https://api.hjn.xyz/wy/tiangou.php?code=txt
